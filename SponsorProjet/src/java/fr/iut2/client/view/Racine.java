@@ -50,15 +50,6 @@ public class Racine extends Composite{
         private ViewGereSponsor viewGereSponsor;
       //  private ViewUploadFile viewUploadFile;
 
-	/*@UiField
-	TextPanelTab textPanelTab;
-
-	@UiField
-	UsersPanel usersPanel;
-
-	@UiField(provided=true)
-	ActionsPanel actionsPanel;
-*/
         private HandlerManager eventBus;
 
 	public Racine(HandlerManager eventBus) {
@@ -79,6 +70,9 @@ public class Racine extends Composite{
                 
 	}
 
+        /**
+         * Initialisation du panel principal
+         */
         private void init(){
 
                 dockPanel = new DockPanel();

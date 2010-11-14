@@ -51,28 +51,14 @@ public class ViewUploadFile extends Composite {
 		upload.setName("uploadFormElement");
 		panel.add(upload);
 		
-		// Ajout du label message serveur
-		//panel.add(messageServeur);
-		
-		// Ajout d'un bouton 'Submit'
-		//Button uploadSubmitButton = new Button("Envoyer sur le serveur");
-		//panel.add(uploadSubmitButton);
-		
-		/*uploadSubmitButton.addClickHandler(new ClickHandler() {
-
-			public void onClick(ClickEvent event) {
-				uploadForm.submit();
-                                eventBus.fireEvent(new ActionEvent("UPLOADFORM_SUBMIT"));
-			}
-		});*/
-		
 		uploadForm.addSubmitCompleteHandler(new SubmitCompleteHandler() {
 
+                    /**
+                     * Apel le controleur pour mettre a jour la liste et la sauvegarder sur le serveur.
+                     * Le controleur split sur le "=", pour récupérer le chemin de l'image. et la modifier dans le sponsor associé
+                     */
 			public void onSubmitComplete(SubmitCompleteEvent event) {
-				//messageServeur.setHTML(event.getResults()); //getRésult == nOm??
-                               // ViewUploadFile.this.sponsor.setUrlLogo(event.getResults().replaceAll("<pre>", "").replaceAll("</pre>", ""));
-                               // ViewUploadFile.this.image.setText(event.getResults().replaceAll("<pre>", "").replaceAll("</pre>", ""));
-                                eventBus.fireEvent(new ActionEvent("UPLOADFORM_OK=" + event.getResults().replaceAll("<pre>", "").replaceAll("</pre>", ""),sponsor));
+				eventBus.fireEvent(new ActionEvent("UPLOADFORM_OK=" + event.getResults().replaceAll("<pre>", "").replaceAll("</pre>", ""),sponsor));
 			}
 		});
 		

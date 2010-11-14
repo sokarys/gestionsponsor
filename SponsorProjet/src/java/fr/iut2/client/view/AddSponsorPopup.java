@@ -21,7 +21,7 @@ import fr.iut2.client.model.SponsorLot;
 import java.util.ArrayList;
 
 /**
- *
+ * Permet de créer des sponsors
  * @author sokarys
  */
 public class AddSponsorPopup extends PopupPanel{

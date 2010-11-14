@@ -10,3 +10,9 @@
 <urllogo>images/ILL_logo.jpg</urllogo>
 <argent>10.0</argent>
 </sponsor>
+<sponsor class="fr.iut2.client.model.SponsorArgent">
+<name>Kikoo</name>
+<adresse>O_o</adresse>
+<urllogo>images/logo_says.jpg</urllogo>
+<argent>18.2</argent>
+</sponsor>

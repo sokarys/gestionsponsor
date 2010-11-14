@@ -139,6 +139,14 @@ public class ViewASponsor extends Composite{
             }
         });
 
+        image.addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(ClickEvent event) {
+                ViewASponsor.this.eventBus.fireEvent(new ActionEvent("Zoom_ViewASponsor",ViewASponsor.this));
+            }
+        });
+
      
     }
 
@@ -246,10 +254,6 @@ public class ViewASponsor extends Composite{
 
     public ViewUploadFile getFormUploadImg() {
         return formUploadImg;
-    }
-
-    public void setSponsor(Sponsor sponsor) {
-        this.sponsor = sponsor;
     }
 
     
