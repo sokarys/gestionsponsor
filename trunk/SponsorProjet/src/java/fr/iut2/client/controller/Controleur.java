@@ -19,6 +19,7 @@ import fr.iut2.client.model.SponsorLot;
 import fr.iut2.client.service.MyService;
 import fr.iut2.client.service.MyServiceAsync;
 import fr.iut2.client.view.AddSponsorPopup;
+import fr.iut2.client.view.ImagePopupAnimate;
 import fr.iut2.client.view.Racine;
 import fr.iut2.client.view.ViewASponsor;
 
@@ -46,24 +47,43 @@ public class Controleur {
 
                         @Override
 			public void onActionEvent(ActionEvent event) {
+                                /**
+                                 * Permet de change le sponsor en fonction de la sélection de la liste
+                                 */
                                 if(event.getAction().contains("CHANGE_LIST_STATUS_LOT")) {
                                         int selectedIndex = Racine.get().getViewDotation().getLbLot().getSelectedIndex();
                                         Racine.get().getViewDotation().switchLigneDon(selectedIndex);
-                                }else if(event.getAction().contains("CHANGE_LIST_STATUS_ARGENT")) {
+                                }
+                                /**
+                                 * Permet de change le sponsor en fonction de la sélection de la liste
+                                 */
+                                else if(event.getAction().contains("CHANGE_LIST_STATUS_ARGENT")) {
                                         int selectedIndex = Racine.get().getViewDotation().getLbArgent().getSelectedIndex();
                                         Racine.get().getViewDotation().switchLigneArgent(selectedIndex);
-                                }else if(event.getAction().contains("Modify_ViewASponsor")) {
+                                }
+                                /**
+                                 * Permet d'activer ou de désactiver la modification d'un sponsor
+                                 */
+                                else if(event.getAction().contains("Modify_ViewASponsor")) {
                                         if(event.getViewASponsor().getState() == ViewASponsor.STATE.READ){
                                             event.getViewASponsor().toModify();
                                         }else if(event.getViewASponsor().getState() == ViewASponsor.STATE.MODIFY){
                                             event.getViewASponsor().toWatch();
                                         }
-                                }else if(event.getAction().contains("Delete_ViewASponsor")) {
+                                }
+                                /**
+                                 * Permet de supprimet un sponsor
+                                 */
+                                else if(event.getAction().contains("Delete_ViewASponsor")) {
                                             if(event.getViewASponsor() != null){
                                                 Controleur.this.listSponsor.removeSponsor(event.getViewASponsor().getSponsor());
                                                 saveModel(myService);
                                             }
-                                }else if(event.getAction().contains("Save_ViewASponsor")) {
+                                }
+                                /**
+                                 * sauvegarde un sponsor dans la liste
+                                 */
+                                else if(event.getAction().contains("Save_ViewASponsor")) {
                                             event.getViewASponsor().getFormUploadImg().submitUploadForm();
                                             event.getViewASponsor().getSponsor().setName(event.getViewASponsor().getNameText());
                                             event.getViewASponsor().getSponsor().setAdresse(event.getViewASponsor().getAdresseText());
@@ -73,25 +93,60 @@ public class Controleur {
                                             }else  if(event.getViewASponsor().getSponsor() instanceof SponsorLot){
                                                 ((SponsorLot) event.getViewASponsor().getSponsor()).setListeLot(event.getViewASponsor().getLotsList());
                                             }
-                                }else if(event.getAction().contains("VIEWALL_VIEWALL")){
+                                }
+                                /**
+                                 * Permet de changer la vue et d'afficher tous les sponsors
+                                 */
+                                else if(event.getAction().contains("VIEWALL_VIEWALL")){
                                         Racine.get().getviewAllS().switchDeckPanel(0);
-                                }else if(event.getAction().contains("VIEWALL_VIEWLOTS")){
+                                }
+                                /**
+                                 * Permet de changer la vue pour afficher que les sponsors lots
+                                 */
+                                else if(event.getAction().contains("VIEWALL_VIEWLOTS")){
                                         Racine.get().getviewAllS().switchDeckPanel(1);
-                                }else if(event.getAction().contains("VIEWALL_VIEWARGENTS")){
+                                }
+                                /**
+                                 * Permet de changer la vue pour afficher que les sponsors argents
+                                 */
+                                else if(event.getAction().contains("VIEWALL_VIEWARGENTS")){
                                         Racine.get().getviewAllS().switchDeckPanel(2);
-                                }else if(event.getAction().contains("VIEWGERE_VIEWALL")){
+                                }
+                                /**
+                                 * Permet de changer la vue et d'afficher tous les sponsors
+                                 */
+                                else if(event.getAction().contains("VIEWGERE_VIEWALL")){
                                         Racine.get().getViewGereSponsor().switchDeckPanel(0);
-                                }else if(event.getAction().contains("VIEWGERE_VIEWLOTS")){
+                                }
+                                /**
+                                 * Permet de changer la vue pour afficher que les sponsors lots
+                                 */
+                                else if(event.getAction().contains("VIEWGERE_VIEWLOTS")){
                                         Racine.get().getViewGereSponsor().switchDeckPanel(1);
-                                }else if(event.getAction().contains("VIEWGERE_VIEWARGENTS")){
+                                }
+                                /**
+                                 * Permet de changer la vue pour afficher que les sponsors lots
+                                 */
+                                else if(event.getAction().contains("VIEWGERE_VIEWARGENTS")){
                                         Racine.get().getViewGereSponsor().switchDeckPanel(2);
-                                }else if(event.getAction().contains("VIEWGERE_ADD_SPONSOR")){
+                                }
+                                 /**
+                                 * Permet d'afficher la popup pour rajouter un sponsor
+                                 */
+                                else if(event.getAction().contains("VIEWGERE_ADD_SPONSOR")){
                                         Racine.get().getViewGereSponsor().addSponsor();
-                                }else if(event.getAction().contains("VIEWDOTATION_VIEWLOT")){
+                                } /**
+                                 * Permet de changer la vue dans le popup pour rajouter le bon sponsor
+                                 */
+                                else if(event.getAction().contains("VIEWDOTATION_VIEWLOT")){
                                         Racine.get().getViewDotation().switchDeckPanel(0);
                                 }else if(event.getAction().contains("VIEWDOTATION_VIEWARGENT")){
                                         Racine.get().getViewDotation().switchDeckPanel(1);
-                                }else if(event.getAction().contains("AddSponsorPopup_CancelSponsor")){
+                                }
+                                /**
+                                 * BOUTONS DE LA POPUP (rajouter,sauvegarder etc
+                                 */
+                                else if(event.getAction().contains("AddSponsorPopup_CancelSponsor")){
                                         Racine.get().getViewGereSponsor().getPopupadd().hide();
                                 }else if(event.getAction().contains("AddSponsorPopup_addSponsor")){
                                         Racine.get().getViewGereSponsor().getPopupadd().getViewUploadFile().submitUploadForm();
@@ -108,10 +163,16 @@ public class Controleur {
                                         Racine.get().getViewGereSponsor().getPopupadd().createNewSponsorArgent();
                                 }else if(event.getAction().contains("AddSponsorPopup_addOneLotListe")){
                                         Racine.get().getViewGereSponsor().getPopupadd().addOneLotTotheList();
-                                }else if(event.getAction().contains("UPLOADFORM_OK")){
+                                }
+                                /**
+                                 * Met a jour la liste sur le serveur après avoir uploadé la nouvelle image
+                                 */
+                                else if(event.getAction().contains("UPLOADFORM_OK")){
+                                    try{
                                         String s = event.getAction().split("=")[1];
                                         event.getViewASponsor().getSponsor().setUrlLogo(s);
                                         saveModel(myService);
+                                    }catch(Exception e){System.err.println("Erreur Controlleur, UPLOADFORM_OK");}
                                 }
 			}
 		});

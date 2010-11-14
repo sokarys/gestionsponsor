@@ -39,6 +39,10 @@ public class SponsorLot extends Sponsor {
         return this.listeLot;
     }
 
+    /**
+     *
+     * @return la version xml du sponsor
+     */
     @Override
     public String toXML() {
         String xml = "";

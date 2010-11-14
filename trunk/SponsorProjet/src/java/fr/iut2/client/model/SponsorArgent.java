@@ -23,6 +23,10 @@ public class SponsorArgent extends Sponsor {
         return argent;
     }
 
+    /**
+     * 
+     * @return la version xml du sponsor
+     */
     @Override
     public String toXML() {
         String xml = "";

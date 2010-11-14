@@ -14,7 +14,10 @@ import java.util.ArrayList;
  */
 public class ListeLot implements IsSerializable {
     private ArrayList<String> listLot;
-    
+
+    /**
+     * Constructeur, Permet de gérer les lots des Sponsors lots.
+     */
     public ListeLot(){
         listLot = new ArrayList<String>();
     }

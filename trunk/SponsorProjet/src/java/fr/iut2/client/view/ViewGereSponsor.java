@@ -13,7 +13,8 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import fr.iut2.client.event.ActionEvent;
 
 /**
- *
+ * Class permetant de gérer les sponsors. elle est extends de viewAllSponsor,
+ * et on lui rajoute quelque élément pour la modification soit possible et le rajout de sponsor aussi.
  * @author sokarys
  */
 public class ViewGereSponsor extends ViewAllSponsor{
@@ -80,6 +81,10 @@ public class ViewGereSponsor extends ViewAllSponsor{
         popupadd.center();
     }
 
+    /**
+     * Permet de dire à la classe que les ViewASponsor doivent etre modifiable.
+     * @return boolean
+     */
     @Override
     protected boolean modifyMode() {
         return true;

@@ -15,6 +15,9 @@ import java.util.ArrayList;
 public class ListSponsor implements IsSerializable{
     private ArrayList<Sponsor> listSponsor;
 
+    /**
+     * Constructeur
+     */
     public ListSponsor(){
         listSponsor = new ArrayList<Sponsor>();
     }
@@ -85,7 +88,10 @@ public class ListSponsor implements IsSerializable{
         this.listSponsor = listSponsor;
     }
 
-
+    /**
+     * Permet de convertir la liste de sponsor en un string qui comporte du XML (utilisé pour la sauvegarde et le chargment de la liste)
+     * @return renvoie un string qui comporte la liste sous forme XML de tous les sponsors
+     */
     public String toXML(){
         String str = "";
         for(Sponsor s : listSponsor){
