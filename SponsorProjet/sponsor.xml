@@ -1,0 +1,12 @@
+<sponsor class="fr.iut2.client.model.SponsorLot">
+<name>test1</name>
+<adresse>adresse</adresse>
+<urllogo>images/esrf.jpeg</urllogo>
+<lot>ASz</lot>
+</sponsor>
+<sponsor class="fr.iut2.client.model.SponsorArgent">
+<name>ArgentSD</name>
+<adresse>adresse</adresse>
+<urllogo>images/ILL_logo.jpg</urllogo>
+<argent>10.0</argent>
+</sponsor>
