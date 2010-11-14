@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>myserviceimpl</servlet-name>
+        <servlet-class>fr.iut2.server.MyServiceImpl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myserviceimpl</servlet-name>
+        <url-pattern>/fr.iut2.sponsorprojet/myservice</url-pattern>
+    </servlet-mapping>
+
+ <!-- Servlets -->
+  <servlet>
+    <servlet-name>uploadServlet</servlet-name>
+    <servlet-class>fr.iut2.server.UploadFileServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>uploadServlet</servlet-name>
+    <url-pattern>/fr.iut2.sponsorprojet/UploadFileServlet</url-pattern>
+  </servlet-mapping>
+
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>welcomeGWT.html</welcome-file>
+    </welcome-file-list>
+</web-app>
