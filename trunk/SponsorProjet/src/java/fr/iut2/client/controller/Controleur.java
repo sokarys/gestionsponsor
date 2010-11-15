@@ -5,7 +5,6 @@
 
 package fr.iut2.client.controller;
 
-import com.google.gwt.core.client.GWT;
 
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -13,13 +12,9 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import fr.iut2.client.event.ActionEvent;
 import fr.iut2.client.event.ActionEventHandler;
 import fr.iut2.client.model.ListSponsor;
-import fr.iut2.client.model.Sponsor;
 import fr.iut2.client.model.SponsorArgent;
 import fr.iut2.client.model.SponsorLot;
-import fr.iut2.client.service.MyService;
 import fr.iut2.client.service.MyServiceAsync;
-import fr.iut2.client.view.AddSponsorPopup;
-import fr.iut2.client.view.ImagePopupAnimate;
 import fr.iut2.client.view.Racine;
 import fr.iut2.client.view.ViewASponsor;
 
@@ -36,12 +31,20 @@ public class Controleur{
         private ListSponsor listSponsor = null;
         private Racine racine;
 
+        /**
+         * Constructeur
+         * @param service
+         * @param eventBus
+         */
 	public Controleur(MyServiceAsync service, HandlerManager eventBus) {
 		this.eventBus = eventBus;
 		this.myService = service;
 		bind();
 	}
 
+        /**
+         * Déclaration des events
+         */
 	private void bind() {
 		eventBus.addHandler(ActionEvent.TYPE, new ActionEventHandler() {
 
@@ -187,7 +190,10 @@ public class Controleur{
                 racine.go(this.container);
 	}
 
-
+    /**
+     * Création de la liste des sponsors et init des vues
+     * @param myService
+     */
       private void initialisationModel(MyServiceAsync myService){
              
          AsyncCallback<ListSponsor> getSponsor  = new AsyncCallback<ListSponsor>() {
@@ -213,7 +219,10 @@ public class Controleur{
 
         }
 
-
+/**
+ * Sauvegarde de la liste des sponsor sur le serveur puis update des vues
+ * @param myService
+ */
       private void saveModel(MyServiceAsync myService){
       AsyncCallback<Void> setSponsor  = new AsyncCallback<Void>() {
                 @Override

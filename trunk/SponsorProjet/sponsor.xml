@@ -4,3 +4,9 @@
 <urllogo>images/esrf.jpeg</urllogo>
 <lot>Windows2</lot>
 </sponsor>
+<sponsor class="fr.iut2.client.model.SponsorArgent">
+<name>O_o</name>
+<adresse>kikoo lol</adresse>
+<urllogo>images/ILL_logo.jpg</urllogo>
+<argent>1.0E8</argent>
+</sponsor>

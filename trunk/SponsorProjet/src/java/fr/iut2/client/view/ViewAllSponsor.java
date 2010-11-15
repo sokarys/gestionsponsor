@@ -35,7 +35,10 @@ public class ViewAllSponsor extends Composite{
     protected Button viewAll, viewLot, viewArgent;
     protected VerticalPanel panel;
     
-
+/**
+ * Constructeur
+ * @param eventBus
+ */
     public ViewAllSponsor(final HandlerManager eventBus){
         panel = new VerticalPanel();
         HorizontalPanel hPanel = new HorizontalPanel();
@@ -78,6 +81,9 @@ public class ViewAllSponsor extends Composite{
        
     }
 
+    /**
+     * Init event
+     */
     protected void initAction(){
         viewAll.addClickHandler(new ClickHandler() {
 
@@ -104,6 +110,10 @@ public class ViewAllSponsor extends Composite{
         });
     }
 
+    /**
+     * Fonction pour metre a jour la vue
+     * @param l
+     */
     public void setList(ListSponsor l){
         fTable.clear();
         viewasponsor.clear();
@@ -145,12 +155,10 @@ public class ViewAllSponsor extends Composite{
         switchDeckPanel(0);
     }
 
-    public void updateViewASponsor(){
-        for(ViewASponsor v : viewasponsor){
-            v.updateContent();
-        }
-    }
-
+/**
+ * Fonction apelé par un event pour changer la vue
+ * @param index
+ */
     public void switchDeckPanel(int index){
         if(dPanel != null){
             dPanel.showWidget(index);
@@ -170,10 +178,18 @@ public class ViewAllSponsor extends Composite{
         }
     }
 
+    /**
+     * Fonction qui permet de dire si les ViewASponsor sont en mode modify ou read! utilise dans la sous classe ViewGereSponsor
+     * @return
+     */
     protected boolean modifyMode(){
         return false;
     }
 
+    /**
+     * Pour pouvoir gérer l'historique
+     * @return
+     */
     @Override
     public String getTitle() {
         return "ViewAllSponsor";

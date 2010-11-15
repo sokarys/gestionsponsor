@@ -10,13 +10,22 @@ public class ActionEvent extends GwtEvent<ActionEventHandler> {
 
 	private String action;
         private ViewASponsor sponsor;
-	
+
+        /**
+         * Construcuteur
+         * @param action
+         */
 	public ActionEvent(String action) {
 		super();
 		this.action = action;
                 this.sponsor = null;
 	}
 
+        /**
+         * Constructeur avec un ViewASponsor pour pouvoir modifier ou récup les donnée d'un sponsor
+         * @param action
+         * @param sponsor
+         */
         public ActionEvent(String action,ViewASponsor sponsor) {
 		super();
 		this.action = action;

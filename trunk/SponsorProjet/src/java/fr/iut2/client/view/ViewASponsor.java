@@ -168,7 +168,7 @@ public class ViewASponsor extends Composite{
      
     }
     /**
-     *
+     * Permet de changer le mode pour modifier le sponsor
      */
     public void toModify(){
         image.setVisible(true);
@@ -195,24 +195,9 @@ public class ViewASponsor extends Composite{
     }
 
 
-    public void updateContent(){
-        name.setText(sponsor.getName());
-        adresse.setText(sponsor.getAdresse());
-        image.setText(sponsor.getUrlLogo());
-        
-         if(sponsor instanceof SponsorArgent){
-             SponsorArgent slot = (SponsorArgent) sponsor;
-             argent.setText(String.valueOf(new Float(slot.getArgent())));
-         }else if(sponsor instanceof SponsorLot){
-              SponsorLot slot = (SponsorLot) sponsor;
-                lot.clear();
-              for(int i=0; i<slot.getNombreDeLot(); i++){
-                  lot.add(new TextArea());
-                  lot.get(i).setText(slot.getLot(i));
-              }
-         }
-    }
-
+   /**
+     * Permet de changer le mode pour voir le sponsor
+     */
     public void toWatch(){
         image.setVisible(false);
         if(logoImg!=null){

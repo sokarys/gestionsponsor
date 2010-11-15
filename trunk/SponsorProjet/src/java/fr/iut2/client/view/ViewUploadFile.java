@@ -19,7 +19,7 @@ import fr.iut2.client.event.ActionEvent;
 import fr.iut2.client.model.Sponsor;
 
 /**
- * 
+ * Formulaire pour upload un fichier
  */
 public class ViewUploadFile extends Composite {
 	
@@ -31,7 +31,12 @@ public class ViewUploadFile extends Composite {
         private ViewASponsor sponsor;
         private TextArea image;
         private boolean complete;
-	
+
+        /**
+         * Construcuteur
+         * @param eventBus
+         * @param s
+         */
 	public ViewUploadFile(final HandlerManager eventBus, ViewASponsor s) {
 		sponsor = s;
                 complete = false;
@@ -66,12 +71,16 @@ public class ViewUploadFile extends Composite {
 		this.initWidget(uploadForm);
 	}
 
+        /**
+         * Methode pour envoyé le formulaire au serveur. Apelé par le controleur
+         */
         public void submitUploadForm(){
            // if(!upload.getFilename().isEmpty()){
             //    complete =false;
                 this.uploadForm.submit();
             //}
         }
+        
         public boolean isComplete(){
             return complete;
         }

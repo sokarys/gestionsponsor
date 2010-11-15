@@ -27,7 +27,11 @@ import java.util.logging.Logger;
 public class MyServiceImpl extends RemoteServiceServlet implements MyService {
     private static final long serialVersionUID = 1L;
 
-    
+
+    /**
+     * Fonction pour récupérer la liste des sponsors! Lit et parsse la liste pour en créer une a donné au vue
+     * @return
+     */
     @Override
     public ListSponsor getSponsor() {
        
@@ -36,14 +40,11 @@ public class MyServiceImpl extends RemoteServiceServlet implements MyService {
             //System.out.print("FILE FACTORY = " + FileFactory.getText("sponsor.xml"));
             String[] sponsorInFile = FileFactory.getText("sponsor.xml").split("\n"); //Transforme le xml en une ArrayList de string!
             //sponsor.addAll(Arrays.asList(sponsorInFile));
-            System.out.println("TAILLE sponsorInFile = " + sponsorInFile.length);
             
             for(int i=0; i<sponsorInFile.length ; i++){
                 sponsor.add(sponsorInFile[i]);
             }
-            System.out.println("##############################");
-            System.out.println("TAILLE sponso = " + sponsor.size());
-            System.out.println("##############################");
+  
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MyServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -76,72 +77,25 @@ public class MyServiceImpl extends RemoteServiceServlet implements MyService {
                     }
                     i++;
                 }
-                System.out.println(name + "  " + adresse + "  " + urlLogo + "  " + argent);
                 if(classeName.contains("SponsorArgent")){
-                    System.out.println("ADD SponsorArgent");
                     listSponsor.addSponsor(new SponsorArgent(name,adresse, urlLogo,Float.valueOf(argent)));
                 }else if(classeName.contains("SponsorLot")){
-                    System.out.println("ADD SponsorLot");
                      listSponsor.addSponsor(new SponsorLot(name,adresse,urlLogo,lots));
                 }
             }
         }
-
-        System.out.println(listSponsor.toString());
-        System.out.print("NB SPONSOR = " + listSponsor.getNbSponsor());
         return listSponsor;
         
     }
 
+    /**
+     * Sauvegarde la liste dans le fichier, pour ne pas perdre les modifs des sponsors
+     * @param list
+     */
     @Override
     public void setSponsor(ListSponsor list) {
         FileFactory.setText("sponsor.xml", list.toXML());
     }
 
-
-    private ListSponsor initSponsor(ArrayList<String> list){
-        ListSponsor listSponsor = new ListSponsor();
-        String name = "", adresse = "", urlLogo = "", argent = "";
-        ListeLot lots;
-        String classeName = "";
-        
-        for(int i=0; i<list.size(); i++){
-            if(list.get(i).contains("<sponsor")){
-                classeName = list.get(i);
-                lots = new ListeLot();
-                while(!list.get(i).contains("</sponsor>")){
-                    if(list.get(i).contains("<name>")){
-                        name = list.get(i).replace("<name>", "").replace("</name>", "");
-                    }
-                    if(list.get(i).contains("<adresse>")){
-                        adresse = list.get(i).replace("<adresse>", "").replace("</adresse>", "");
-                    }
-                    if(list.get(i).contains("<urllogo>")){
-                        urlLogo = list.get(i).replace("<urllogo>", "").replace("</urllogo>", "");
-                    }
-                    if(list.get(i).contains("<argent>")){
-                        argent = list.get(i).replace("<argent>", "").replace("</argent>", "");
-                    }
-                    if(list.get(i).contains("<lot>")){
-                        lots.addLot(list.get(i).replace("<lot>", "").replace("</lot>", ""));
-                    }
-                }
-                System.out.println(name + "  " + adresse + "  " + urlLogo);
-                if(classeName.contains("SponsorArgent")){
-                    System.out.println("ADD SponsorArgent");
-                    listSponsor.addSponsor(new SponsorArgent(name,adresse,urlLogo,Float.valueOf(argent)));
-                }else if(classeName.contains("SponsorLot")){
-                    System.out.println("ADD SponsorLot");
-                     listSponsor.addSponsor(new SponsorLot(name,adresse,urlLogo,lots));
-                }
-            }
-        }
-
-        //System.out.println(listSponsor.toString());
-        //System.out.print("NB SPONSOR = " + listSponsor.getNbSponsor());
-        return listSponsor;
-    }
-
-   
 
 }

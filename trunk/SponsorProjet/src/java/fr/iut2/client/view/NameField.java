@@ -79,4 +79,38 @@ String viewDotationArgent();
 
 @DefaultStringValue("Liste des dons lots")
 String viewDotationLots();
+
+
+    @DefaultStringValue("Rajouter un Sponsor Lot")
+    String AddSponsorPopup_addLot();
+    
+    @DefaultStringValue("Rajouter un Sponsor Argent")
+    String AddSponsorPopup_addArgent();
+
+    @DefaultStringValue("Nom")
+    String AddSponsorPopup_name();
+
+    @DefaultStringValue("adresse")
+    String AddSponsorPopup_adresse();
+
+    @DefaultStringValue("argent")
+    String AddSponsorPopup_argent();
+
+    @DefaultStringValue("Rajouter")
+    String AddSponsorPopup_addsponsor();
+
+    @DefaultStringValue("Nouveau lot")
+    String AddSponsorPopup_addLotList();
+
+     @DefaultStringValue("Supprimmer les lots vides")
+     String AddSponsorPopup_removeEmpty();
+
+    @DefaultStringValue("Annuler")
+    String AddSponsorPopup_cancel();
+
+    @DefaultStringValue("Rajouter un Sponsor")
+    String ViewGereSponsor_addSponsor();
+
+
+
 }

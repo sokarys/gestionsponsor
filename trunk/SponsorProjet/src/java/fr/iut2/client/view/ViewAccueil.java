@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- *
+ * Composite correspondant à l'accueil créer grace à uibinder
  * @author sokarys
  */
 public class ViewAccueil extends Composite{
