@@ -29,11 +29,13 @@ public class ViewASponsor extends Composite{
     public static enum STATE {MODIFY, READ};
     protected final String SIZE_LOGO = "50px";
     protected TextArea name,adresse,argent,image;
+    protected Button addLot;
     protected Image logoImg;
     protected ArrayList<TextArea> lot;
     protected DisclosurePanel content;
     protected Button modifyGo,save,delete;
     private ViewUploadFile formUploadImg;
+    private VerticalPanel p2 = new VerticalPanel();
     protected Sponsor sponsor;
     protected HandlerManager eventBus;
     protected STATE state;
@@ -75,6 +77,8 @@ public class ViewASponsor extends Composite{
         adresse.setVisibleLines(2);
         flex.add(adresse);
 
+        addLot = new Button(Racine.NAMEFIELD_CONSTANT.AddSponsorPopup_addLotList());
+        
         image = new TextArea();
         image.setText(sponsor.getUrlLogo());
         image.setVisibleLines(1);
@@ -105,9 +109,12 @@ public class ViewASponsor extends Composite{
              flex.add(argent);
          }else if(sponsor instanceof SponsorLot){
              flex.add(new Label("Lots : "));
+              
+              lot = new ArrayList<TextArea>();
+            flex.add(p2);
+              
               SponsorLot slot = (SponsorLot) sponsor;
-                lot = new ArrayList<TextArea>();
-              for(int i=0; i<slot.getNombreDeLot(); i++){
+               for(int i=0; i<slot.getNombreDeLot(); i++){
                   
                   lot.add(new TextArea());
                   lot.get(i).setText(slot.getLot(i));
@@ -125,6 +132,7 @@ public class ViewASponsor extends Composite{
         
         this.changeModifyStatus(modifyMode);
 
+        flex.add(addLot);
         flex.add(save);
         flex.add(delete);
         flex.add(modifyGo);
@@ -165,6 +173,14 @@ public class ViewASponsor extends Composite{
             }
         });
 
+        addLot.addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(ClickEvent event) {
+                ViewASponsor.this.eventBus.fireEvent(new ActionEvent("addlot_ViewASponsor",ViewASponsor.this));
+            }
+        });
+
      
     }
     /**
@@ -175,6 +191,7 @@ public class ViewASponsor extends Composite{
         if(logoImg!=null){
             logoImg.setVisible(false);
         }
+        addLot.setVisible(true);
         modifyGo.setText("Read");
         save.setVisible(true);
         delete.setVisible(true);
@@ -205,6 +222,7 @@ public class ViewASponsor extends Composite{
         }
         modifyGo.setText("Modify");
         save.setVisible(false);
+        addLot.setVisible(false);
         delete.setVisible(false);
         formUploadImg.setVisible(false);
         name.setReadOnly(true);
@@ -212,6 +230,7 @@ public class ViewASponsor extends Composite{
         adresse.setReadOnly(true);
         
         if(sponsor instanceof SponsorLot){
+            removeEmptySponsorLot();
             for(TextArea t : lot){
                 t.setReadOnly(true);
             }
@@ -261,5 +280,58 @@ public class ViewASponsor extends Composite{
         return formUploadImg;
     }
 
-    
+
+    public void updateListLot(){
+        p2.clear();
+        for(TextArea t : lot){
+            p2.add(t);
+        }
+    }
+
+    public void addOneLotTotheList(){
+      lot.add(new TextArea());
+      updateListLot();
+    }
+
+
+     public void removeEmptySponsorLot(){
+         p2.clear();
+                for(int i=0; i< lot.size() ; i++){
+                    if(lot.get(i).getText().isEmpty()){
+                        lot.remove(i);
+                        i--;
+                    }else if(!((SponsorLot)this.getSponsor()).getListLot().contains(lot.get(i).getText())){
+                        lot.remove(i);
+                        i--;
+                    }
+                }
+        updateListLot();
+    }
+     
+    public void modifySponsor(){
+        if(sponsor instanceof SponsorLot){
+           ListeLot l = new ListeLot();
+
+           for(TextArea t : this.lot){
+               if(!t.getText().isEmpty()){
+                    l.addLot(t.getText());
+               }
+           }
+
+           sponsor.setAdresse(adresse.getText());
+           sponsor.setName(name.getText());
+           ((SponsorLot) sponsor).setListeLot(l);
+
+       }else  if(sponsor instanceof SponsorArgent){
+
+           sponsor.setAdresse(adresse.getText());
+           sponsor.setName(name.getText());
+           try{
+                ((SponsorArgent) sponsor).setArgent(Float.valueOf(argent.getText().replaceAll(",", ".")));
+            }catch(Exception e){
+                ((SponsorArgent) sponsor).setArgent(Float.valueOf(argent.getText() + ".00"));
+            }
+       }
+    }
+
 }

@@ -68,8 +68,8 @@ public class ViewFlyers extends Composite{
         for(int i=0; i<list.getNbSponsor(); i++){
             if(list.getASponsor(i) instanceof SponsorArgent){
                 Image img = new Image(list.getASponsor(i).getUrlLogo());
-                img.setHeight("30px");
-                img.setWidth("30px");
+                img.setHeight("50px");
+                img.setWidth("50px");
                 aPanel.add(img);
                 /**
                  * Permet le drag and drop des images
