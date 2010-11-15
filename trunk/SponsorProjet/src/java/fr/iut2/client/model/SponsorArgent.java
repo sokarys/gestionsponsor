@@ -18,7 +18,7 @@ public class SponsorArgent extends Sponsor {
         super(name,adresse,urlLogo);
         this.argent = new Float(argent);
     }
-
+    
     public float getArgent() {
         return argent;
     }

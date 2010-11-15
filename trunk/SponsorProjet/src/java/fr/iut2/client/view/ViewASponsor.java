@@ -52,16 +52,19 @@ public class ViewASponsor extends Composite{
         content.setAnimationEnabled(true);
 
         name = new TextArea();
+        name.setVisibleLines(1);
         name.setText(sponsor.getName());
         content.setHeader(name);
 
 
         adresse = new TextArea();
         adresse.setText(sponsor.getAdresse());
+        adresse.setVisibleLines(2);
         flex.add(adresse);
 
         image = new TextArea();
         image.setText(sponsor.getUrlLogo());
+        image.setVisibleLines(1);
         image.setVisible(false);
         flex.add(image);
         formUploadImg = new ViewUploadFile(eventBus,this);
@@ -83,6 +86,7 @@ public class ViewASponsor extends Composite{
          if(sponsor instanceof SponsorArgent){
              SponsorArgent slot = (SponsorArgent) sponsor;
              argent = new TextArea();
+             argent.setVisibleLines(1);
              argent.setText(String.valueOf(new Float(slot.getArgent())));
              flex.add(new Label("Argents : "));
              flex.add(argent);
@@ -94,6 +98,7 @@ public class ViewASponsor extends Composite{
                   
                   lot.add(new TextArea());
                   lot.get(i).setText(slot.getLot(i));
+                  lot.get(i).setVisibleLines(1);
                   flex.add(lot.get(i));
               }
 
