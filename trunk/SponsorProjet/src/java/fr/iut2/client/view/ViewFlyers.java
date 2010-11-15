@@ -82,7 +82,7 @@ public class ViewFlyers extends Composite{
 
  /**
   * utilisé pour l'historique
-  * @return
+  * @return title
   */
     @Override
     public String getTitle() {

@@ -180,7 +180,7 @@ public class ViewAllSponsor extends Composite{
 
     /**
      * Fonction qui permet de dire si les ViewASponsor sont en mode modify ou read! utilise dans la sous classe ViewGereSponsor
-     * @return
+     * @return Boolean mode
      */
     protected boolean modifyMode(){
         return false;
@@ -188,7 +188,7 @@ public class ViewAllSponsor extends Composite{
 
     /**
      * Pour pouvoir gérer l'historique
-     * @return
+     * @return Titre 
      */
     @Override
     public String getTitle() {
