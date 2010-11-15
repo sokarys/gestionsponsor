@@ -28,8 +28,7 @@ public class ViewAccueil extends Composite{
 
 
     public ViewAccueil(){
-        
-
+       
         title = new Label();
         title.setText(Racine.NAMEFIELD_CONSTANT.titreAccueil());
         title.setHorizontalAlignment(Label.ALIGN_CENTER);
