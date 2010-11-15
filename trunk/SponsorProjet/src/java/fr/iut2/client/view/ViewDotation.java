@@ -220,4 +220,9 @@ public class ViewDotation extends Composite{
          return dPanel.getVisibleWidget();
      }
 
+    @Override
+    public String getTitle() {
+        return "ViewDotation";
+    }
+
 }

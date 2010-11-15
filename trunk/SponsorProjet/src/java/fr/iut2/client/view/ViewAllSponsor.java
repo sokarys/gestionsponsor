@@ -173,5 +173,10 @@ public class ViewAllSponsor extends Composite{
     protected boolean modifyMode(){
         return false;
     }
+
+    @Override
+    public String getTitle() {
+        return "ViewAllSponsor";
+    }
 }
 

@@ -91,5 +91,10 @@ public class ViewGereSponsor extends ViewAllSponsor{
     }
 
 
+    @Override
+    public String getTitle() {
+        return "ViewGereSponsor";
+    }
+
 
 }
