@@ -104,7 +104,7 @@ public class ViewGereSponsor extends ViewAllSponsor{
 
     /**
      * Utilisé pour l'historique
-     * @return
+     * @return title
      */
     @Override
     public String getTitle() {

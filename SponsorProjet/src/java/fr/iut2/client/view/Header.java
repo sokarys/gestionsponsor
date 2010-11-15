@@ -6,6 +6,7 @@
 package fr.iut2.client.view;
 
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 
 /**
@@ -14,8 +15,8 @@ import com.google.gwt.user.client.ui.Label;
  */
 public class Header extends Composite{
     private Label contenu = new Label(Racine.NAMEFIELD_CONSTANT.contenuHeader());
+
     public Header(){
-        contenu.setHorizontalAlignment(Label.ALIGN_CENTER);
         this.initWidget(contenu);
     }
 

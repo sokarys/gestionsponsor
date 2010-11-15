@@ -87,15 +87,26 @@ public class Controleur{
                                  * sauvegarde un sponsor dans la liste
                                  */
                                 else if(event.getAction().contains("Save_ViewASponsor")) {
-                                            event.getViewASponsor().getFormUploadImg().submitUploadForm();
+                                        if(event.getViewASponsor().getFormUploadImg().isVoid()){
                                             event.getViewASponsor().getSponsor().setName(event.getViewASponsor().getNameText());
                                             event.getViewASponsor().getSponsor().setAdresse(event.getViewASponsor().getAdresseText());
-                                            event.getViewASponsor().getSponsor().setUrlLogo(event.getViewASponsor().getImgText());
                                             if(event.getViewASponsor().getSponsor() instanceof SponsorArgent){
                                                 ((SponsorArgent) event.getViewASponsor().getSponsor()).setArgent(Float.valueOf(event.getViewASponsor().getArgentText()));
                                             }else  if(event.getViewASponsor().getSponsor() instanceof SponsorLot){
                                                 ((SponsorLot) event.getViewASponsor().getSponsor()).setListeLot(event.getViewASponsor().getLotsList());
                                             }
+                                            saveModel(myService);
+                                        }else{
+                                            event.getViewASponsor().getFormUploadImg().submitUploadForm();
+                                            event.getViewASponsor().getSponsor().setName(event.getViewASponsor().getNameText());
+                                            event.getViewASponsor().getSponsor().setAdresse(event.getViewASponsor().getAdresseText());
+                                            //event.getViewASponsor().getSponsor().setUrlLogo(event.getViewASponsor().getImgText());
+                                            if(event.getViewASponsor().getSponsor() instanceof SponsorArgent){
+                                                ((SponsorArgent) event.getViewASponsor().getSponsor()).setArgent(Float.valueOf(event.getViewASponsor().getArgentText()));
+                                            }else  if(event.getViewASponsor().getSponsor() instanceof SponsorLot){
+                                                ((SponsorLot) event.getViewASponsor().getSponsor()).setListeLot(event.getViewASponsor().getLotsList());
+                                            }
+                                        }
                                 }
                                 /**
                                  * Permet de changer la vue et d'afficher tous les sponsors
@@ -173,8 +184,12 @@ public class Controleur{
                                 else if(event.getAction().contains("UPLOADFORM_OK")){
                                     try{
                                         String s = event.getAction().split("=")[1];
-                                        event.getViewASponsor().getSponsor().setUrlLogo(s);
-                                        saveModel(myService);
+                                        if(s!=null){
+                                            if(!s.isEmpty()){
+                                                event.getViewASponsor().getSponsor().setUrlLogo(s);
+                                                saveModel(myService);
+                                            }
+                                        }
                                     }catch(Exception e){System.err.println("Erreur Controlleur, UPLOADFORM_OK");}
                                 }
 			}

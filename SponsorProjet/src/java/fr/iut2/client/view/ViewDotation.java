@@ -221,7 +221,7 @@ public class ViewDotation extends Composite{
 
      /**
       * Permet de savoir quel est le panel qui est montré à l'utilisateur
-      * @return
+      * @return int visible panel
       */
      public int getDPanelShow(){
          return dPanel.getVisibleWidget();
@@ -229,7 +229,7 @@ public class ViewDotation extends Composite{
 
      /**
       * Utilisé dans l'historique
-      * @return
+      * @return title
       */
     @Override
     public String getTitle() {

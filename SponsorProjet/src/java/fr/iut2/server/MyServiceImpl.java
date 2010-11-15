@@ -30,7 +30,7 @@ public class MyServiceImpl extends RemoteServiceServlet implements MyService {
 
     /**
      * Fonction pour récupérer la liste des sponsors! Lit et parsse la liste pour en créer une a donné au vue
-     * @return
+     * @return List de sponsor
      */
     @Override
     public ListSponsor getSponsor() {

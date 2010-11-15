@@ -80,6 +80,9 @@ public class ViewUploadFile extends Composite {
                 this.uploadForm.submit();
             //}
         }
+        public boolean isVoid(){
+            return upload.getFilename().isEmpty();
+        }
         
         public boolean isComplete(){
             return complete;
