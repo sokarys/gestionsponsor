@@ -11,5 +11,6 @@
   <!-- <inherits name="com.google.gwt.user.theme.chrome.Chrome"/> -->
   <!-- <inherits name="com.google.gwt.user.theme.dark.Dark"/> -->
   <entry-point class="fr.iut2.client.sponsorprojetEntryPoint"/>
+  <extend-property name="locale" values="fr,en"/>
   <!-- Do not define servlets here, use web.xml -->
 </module>

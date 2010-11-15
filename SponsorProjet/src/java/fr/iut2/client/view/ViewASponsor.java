@@ -38,11 +38,24 @@ public class ViewASponsor extends Composite{
     protected HandlerManager eventBus;
     protected STATE state;
 
+    /**
+     * Constructeur
+     * @param eventBus
+     * @param sponsor
+     * @param isOpen
+     * @param modifyMode
+     */
     public ViewASponsor(HandlerManager eventBus,Sponsor sponsor, boolean isOpen, boolean modifyMode){
             this(eventBus,sponsor,modifyMode);
             content.setOpen(isOpen);
     }
 
+    /**
+     * Constructeur
+     * @param eventBus
+     * @param sponsor
+     * @param modifyMode
+     */
     public ViewASponsor(HandlerManager eventBus,Sponsor sponsor,boolean modifyMode){
         this.sponsor = sponsor;
         this.eventBus = eventBus;
@@ -154,7 +167,9 @@ public class ViewASponsor extends Composite{
 
      
     }
-
+    /**
+     *
+     */
     public void toModify(){
         image.setVisible(true);
         if(logoImg!=null){

@@ -75,4 +75,8 @@ public class ViewFlyers extends Composite{
             v.update();
         }
     }
+    @Override
+    public String getTitle() {
+        return "ViewFlyers";
+    }
 }

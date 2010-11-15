@@ -35,5 +35,10 @@ public class ViewAccueil extends Composite{
 
         initWidget(uiBinder.createAndBindUi(this));
     }
-    
+
+    @Override
+    public String getTitle() {
+        return "ViewAccueil";
+    }
+
 }

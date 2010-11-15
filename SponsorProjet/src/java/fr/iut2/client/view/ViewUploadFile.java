@@ -19,7 +19,7 @@ import fr.iut2.client.event.ActionEvent;
 import fr.iut2.client.model.Sponsor;
 
 /**
- * Entry point classes define <code>onModuleLoad()</code>.
+ * 
  */
 public class ViewUploadFile extends Composite {
 	

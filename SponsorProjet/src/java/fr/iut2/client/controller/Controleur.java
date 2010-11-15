@@ -27,7 +27,7 @@ import fr.iut2.client.view.ViewASponsor;
  *
  * @author sokarys
  */
-public class Controleur {
+public class Controleur{
 
     private final HandlerManager eventBus;
     private final MyServiceAsync myService;
