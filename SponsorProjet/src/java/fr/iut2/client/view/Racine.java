@@ -93,6 +93,7 @@ public class Racine extends Composite implements ValueChangeHandler<String>{
                 dockPanel = new DockPanel();
                 dockPanel.setHeight(MAX_HEIGHT);
                 dockPanel.setWidth(MAX_WIDTH);
+                dockPanel.setHorizontalAlignment(DockPanel.ALIGN_CENTER);
 
                 tabPanel = new TabPanel();
                 tabPanel.setSize(MAX_WIDTH,MAX_HEIGHT);
@@ -108,7 +109,6 @@ public class Racine extends Composite implements ValueChangeHandler<String>{
 			mapHistory.put(i, tabPanel.getWidget(i).getTitle());
 		}
 
-                System.out.println(mapHistory);
                 
 		historyInit();
 		setHandler();

@@ -73,6 +73,8 @@ public class Controleur{
                                         }else if(event.getViewASponsor().getState() == ViewASponsor.STATE.MODIFY){
                                             event.getViewASponsor().toWatch();
                                         }
+                                }else if(event.getAction().contains("addlot_ViewASponsor")) {
+                                    event.getViewASponsor().addOneLotTotheList();
                                 }
                                 /**
                                  * Permet de supprimet un sponsor
@@ -88,16 +90,22 @@ public class Controleur{
                                  */
                                 else if(event.getAction().contains("Save_ViewASponsor")) {
                                         if(event.getViewASponsor().getFormUploadImg().isVoid()){
-                                            event.getViewASponsor().getSponsor().setName(event.getViewASponsor().getNameText());
+                                           
+                                        /*    event.getViewASponsor().getSponsor().setName(event.getViewASponsor().getNameText());
                                             event.getViewASponsor().getSponsor().setAdresse(event.getViewASponsor().getAdresseText());
                                             if(event.getViewASponsor().getSponsor() instanceof SponsorArgent){
                                                 ((SponsorArgent) event.getViewASponsor().getSponsor()).setArgent(Float.valueOf(event.getViewASponsor().getArgentText()));
                                             }else  if(event.getViewASponsor().getSponsor() instanceof SponsorLot){
                                                 ((SponsorLot) event.getViewASponsor().getSponsor()).setListeLot(event.getViewASponsor().getLotsList());
                                             }
+                                         *
+                                         */
+                                            event.getViewASponsor().modifySponsor();
                                             saveModel(myService);
                                         }else{
+                                            event.getViewASponsor().modifySponsor();
                                             event.getViewASponsor().getFormUploadImg().submitUploadForm();
+/*
                                             event.getViewASponsor().getSponsor().setName(event.getViewASponsor().getNameText());
                                             event.getViewASponsor().getSponsor().setAdresse(event.getViewASponsor().getAdresseText());
                                             //event.getViewASponsor().getSponsor().setUrlLogo(event.getViewASponsor().getImgText());
@@ -105,7 +113,7 @@ public class Controleur{
                                                 ((SponsorArgent) event.getViewASponsor().getSponsor()).setArgent(Float.valueOf(event.getViewASponsor().getArgentText()));
                                             }else  if(event.getViewASponsor().getSponsor() instanceof SponsorLot){
                                                 ((SponsorLot) event.getViewASponsor().getSponsor()).setListeLot(event.getViewASponsor().getLotsList());
-                                            }
+                                            }*/
                                         }
                                 }
                                 /**

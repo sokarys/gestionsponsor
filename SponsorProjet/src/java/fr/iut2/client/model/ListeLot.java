@@ -55,6 +55,15 @@ public class ListeLot implements IsSerializable {
     }
 
 
+    public boolean contains(String str){
+        for(String s : this.listLot){
+            if(str.contains(s)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     
 

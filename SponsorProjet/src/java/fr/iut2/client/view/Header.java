@@ -17,6 +17,7 @@ public class Header extends Composite{
     private Label contenu = new Label(Racine.NAMEFIELD_CONSTANT.contenuHeader());
 
     public Header(){
+        contenu.setHorizontalAlignment(HorizontalPanel.ALIGN_CENTER);
         this.initWidget(contenu);
     }
 

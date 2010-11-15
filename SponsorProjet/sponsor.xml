@@ -1,12 +1,18 @@
-<sponsor class="fr.iut2.client.model.SponsorLot">
-<name>MicrosoftIG</name>
-<adresse>USA</adresse>
-<urllogo>images/esrf.jpeg</urllogo>
-<lot>Windows2</lot>
+<sponsor class="fr.iut2.client.model.SponsorArgent">
+<name>CEA</name>
+<adresse>CEA Grenoble</adresse>
+<urllogo>images/logo_cea.gif</urllogo>
+<argent>100.0</argent>
 </sponsor>
 <sponsor class="fr.iut2.client.model.SponsorArgent">
-<name>O_o</name>
-<adresse>kikoo lol</adresse>
-<urllogo>images/ILL_logo.jpg</urllogo>
-<argent>1.0E8</argent>
+<name>ERSF</name>
+<adresse>ERSF Grenoble</adresse>
+<urllogo>images/esrf.jpeg</urllogo>
+<argent>90.0</argent>
+</sponsor>
+<sponsor class="fr.iut2.client.model.SponsorLot">
+<name>EDF</name>
+<adresse>EDF Paris</adresse>
+<urllogo>images/t1_logo_edf.png</urllogo>
+<lot>100 Stylos</lot>
 </sponsor>
