@@ -22,9 +22,14 @@ public class ViewGereSponsor extends ViewAllSponsor{
     private Button add;
     
     private AddSponsorPopup popupadd;
+
+    /**
+     * Constructeur
+     * @param eventBus
+     */
     public ViewGereSponsor(final HandlerManager eventBus) {
         super(eventBus);
-        add = new Button("Rajouter un Sponsor");
+        add = new Button(Racine.NAMEFIELD_CONSTANT.ViewGereSponsor_addSponsor());
        
         
         hPanel.add(add);
@@ -44,6 +49,9 @@ public class ViewGereSponsor extends ViewAllSponsor{
         
     }
 
+    /**
+     * Permet de gérer les actions méthode override car les noms doivents etre != de la class parent.
+     */
     @Override
     protected void initAction(){
         viewAll.addClickHandler(new ClickHandler() {
@@ -75,6 +83,9 @@ public class ViewGereSponsor extends ViewAllSponsor{
         return popupadd;
     }
 
+    /**
+     * Fonction appelé par le contrôleur pour rajouter un sponsor
+     */
     public void addSponsor(){
         popupadd = new AddSponsorPopup(eventBus,ViewGereSponsor.this.list);
         popupadd.show();
@@ -91,6 +102,10 @@ public class ViewGereSponsor extends ViewAllSponsor{
     }
 
 
+    /**
+     * Utilisé pour l'historique
+     * @return
+     */
     @Override
     public String getTitle() {
         return "ViewGereSponsor";

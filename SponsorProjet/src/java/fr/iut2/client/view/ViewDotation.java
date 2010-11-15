@@ -29,7 +29,7 @@ import fr.iut2.client.model.SponsorLot;
 import java.util.ArrayList;
 
 /**
- *
+ * Vue pour voir les dons recus
  * @author sokarys
  */
 public class ViewDotation extends Composite{
@@ -55,7 +55,10 @@ public class ViewDotation extends Composite{
 
 
    
-
+/**
+ * Constructeur
+ * @param eventBus
+ */
     public ViewDotation(final HandlerManager eventBus){
         this.eventBus = eventBus;
         HorizontalPanel menu = new HorizontalPanel();
@@ -78,7 +81,9 @@ public class ViewDotation extends Composite{
         
         this.initWidget(panel);
 
-
+/**
+ * Event
+ */
          viewDon.addClickHandler(new ClickHandler() {
 
             @Override
@@ -110,6 +115,10 @@ public class ViewDotation extends Composite{
         });
     }
 
+    /**
+     * Fonction de mise a jour de la vue
+     * @param l
+     */
      public void setList(ListSponsor l){
         panelLot.clear();
         panelArgent.clear();
@@ -171,16 +180,10 @@ public class ViewDotation extends Composite{
     }
 
 
-    //AMODIFE
-    public void updateViewASponsor(){
-        for(ViewASponsor v : viewasponsorLot){
-            v.updateContent();
-        }
-        for(ViewASponsor v : viewasponsorArgent){
-            v.updateContent();
-        }
-    }
-
+/**
+ * Permet de changer le deckpanel d'une liste
+ * @param index
+ */
      public void switchDeckPanel(int index){
         if(dPanel != null){
             dPanel.showWidget(index);
@@ -216,10 +219,18 @@ public class ViewDotation extends Composite{
          }
      }
 
+     /**
+      * Permet de savoir quel est le panel qui est montré à l'utilisateur
+      * @return
+      */
      public int getDPanelShow(){
          return dPanel.getVisibleWidget();
      }
 
+     /**
+      * Utilisé dans l'historique
+      * @return
+      */
     @Override
     public String getTitle() {
         return "ViewDotation";

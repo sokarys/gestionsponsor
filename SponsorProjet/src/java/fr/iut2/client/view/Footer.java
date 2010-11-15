@@ -18,8 +18,8 @@ import com.google.gwt.user.client.ui.Label;
 public class Footer extends Composite{
     private HorizontalPanel p = new HorizontalPanel();
     private Label contenu = new Label(Racine.NAMEFIELD_CONSTANT.contenuFooter());
-    private Anchor langFr = new Anchor("<img class='drapeaux' src='ressources/img/fr.jpg'/>",true,"http://127.0.0.1:8888/GestionSponsor.html?gwt.codesvr=127.0.0.1:9997&locale=fr");
-    private Anchor langEn = new Anchor("<img class='drapeaux' src='ressources/img/en.jpg'/>",true,"http://127.0.0.1:8888/GestionSponsor.html?gwt.codesvr=127.0.0.1:9997&locale=en");
+    private Anchor langFr = new Anchor("<img class='drapeaux' src='images/fr.jpg'/>",true,"http://127.0.0.1:8888/?gwt.codesvr=127.0.0.1:9997&locale=fr");
+    private Anchor langEn = new Anchor("<img class='drapeaux' src='images/en.jpg'/>",true,"http://127.0.0.1:8888/?gwt.codesvr=127.0.0.1:9997&locale=en");
     
     public Footer(){
 

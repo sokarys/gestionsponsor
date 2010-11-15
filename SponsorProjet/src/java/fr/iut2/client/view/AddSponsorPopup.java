@@ -37,7 +37,12 @@ public class AddSponsorPopup extends PopupPanel{
     private ArrayList<TextArea> listeLot;
     private ListSponsor listeSponsor;
     private VerticalPanel p2 = new VerticalPanel();
-    
+
+    /**
+     * Permet de créer un popup pour rajouter un sponsor
+     * @param eventBus
+     * @param listeSponsor
+     */
     public AddSponsorPopup(HandlerManager eventBus,ListSponsor listeSponsor){
         super(false);
         this.setAnimationEnabled(true);
@@ -46,26 +51,26 @@ public class AddSponsorPopup extends PopupPanel{
         this.eventBus = eventBus;
         this.listeSponsor = listeSponsor;
 
-        addLot = new Button("Add Sopnsor Lot");
-        addArgent = new Button("Add Sopnsor Argent");
+        addLot = new Button(Racine.NAMEFIELD_CONSTANT.AddSponsorPopup_addLot());
+        addArgent = new Button(Racine.NAMEFIELD_CONSTANT.AddSponsorPopup_addArgent());
         choosePanel.add(addLot);
         choosePanel.add(addArgent);       
         dPanel.add(choosePanel);
 
         name = new TextArea();
-        name.setText("name");
+        name.setText(Racine.NAMEFIELD_CONSTANT.AddSponsorPopup_name());
         adresse = new TextArea();
-        adresse.setText("adresse");
+        adresse.setText(Racine.NAMEFIELD_CONSTANT.AddSponsorPopup_adresse());
         argent = new TextArea();
-        argent.setText("argent");
+        argent.setText(Racine.NAMEFIELD_CONSTANT.AddSponsorPopup_argent());
         image  = new TextArea();
         image.setEnabled(false);
 
-        addSponsor = new Button("AddSponsor");
-        addLotToList = new Button("Add One Lot");
-        removeEmptyLotToList = new Button("Remove Empty lot");
-        cancelSponsor = new Button("Cancel");
-        addSponsor = new Button("Add");
+        //addSponsor = new Button("AddSponsor");
+        addLotToList = new Button(Racine.NAMEFIELD_CONSTANT.AddSponsorPopup_addLotList());
+        removeEmptyLotToList = new Button(Racine.NAMEFIELD_CONSTANT.AddSponsorPopup_removeEmpty());
+        cancelSponsor = new Button(Racine.NAMEFIELD_CONSTANT.AddSponsorPopup_cancel());
+        addSponsor = new Button(Racine.NAMEFIELD_CONSTANT.AddSponsorPopup_addsponsor());
 
 
 
@@ -80,7 +85,9 @@ public class AddSponsorPopup extends PopupPanel{
         //this.add(this.);
     }
 
-
+/**
+ * Mise a jour du panel pour afficher les lots
+ */
     public void updateListLot(){
         p2.clear();
         for(TextArea t : listeLot){
@@ -88,6 +95,9 @@ public class AddSponsorPopup extends PopupPanel{
         }
     }
 
+    /**
+     * fonction pour créer un popup pour rajouter un sponsor Argent
+     */
     public void createNewSponsorArgent(){
         VerticalPanel p = new VerticalPanel();
 
@@ -110,7 +120,10 @@ public class AddSponsorPopup extends PopupPanel{
         switchDPanel(1);
         
     }
-    
+
+    /**
+     * fonction pour créer un popup pour rajouter un sponsor Lot
+     */
     public void createNewSponsorLot(){
         VerticalPanel p = new VerticalPanel();
         
@@ -138,7 +151,9 @@ public class AddSponsorPopup extends PopupPanel{
     }
 
 
-    
+    /**
+     * Evenements
+     */
     private void initAction(){
 
         cancelSponsor.addClickHandler(new ClickHandler() {
@@ -209,6 +224,9 @@ public class AddSponsorPopup extends PopupPanel{
     }
 
 
+    /**
+     * Fonction a apeler pour rajouter un sponsor
+     */
     public void addSponsor(){
         if(sponsor instanceof SponsorLot){
            ListeLot l = new ListeLot();
@@ -240,6 +258,9 @@ public class AddSponsorPopup extends PopupPanel{
        }
     }
 
+    /**
+     * supprime tous le sponsor de la liste et qui sont vides
+     */
     public void removeEmptySponsorLot(){
          p2.clear();
                 for(int i=0; i< listeLot.size() ; i++){
