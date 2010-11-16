@@ -111,6 +111,29 @@ String viewDotationLots();
     @DefaultStringValue("Rajouter un Sponsor")
     String ViewGereSponsor_addSponsor();
 
+     @DefaultStringValue("Tout Ouvrir")
+    String openAll();
+
+      @DefaultStringValue("Tout Fermer")
+      String closeAll();
+
+      @DefaultStringValue("Argent")
+      String argent();
+
+      @DefaultStringValue("Lot")
+      String lot();
+
+      @DefaultStringValue("Modifier")
+      String modify();
+
+      @DefaultStringValue("Mettre à jour")
+      String update();
+
+      @DefaultStringValue("Supprimer")
+      String dell();
+
+      @DefaultStringValue("Lire")
+      String read();
 
 
 }

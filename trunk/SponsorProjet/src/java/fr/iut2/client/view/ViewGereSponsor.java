@@ -77,6 +77,22 @@ public class ViewGereSponsor extends ViewAllSponsor{
                 eventBus.fireEvent(new ActionEvent("VIEWGERE_VIEWARGENTS"));
             }
         });
+
+         openAll.addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(ClickEvent event) {
+                eventBus.fireEvent(new ActionEvent("OPENALL_VIEWGERE"));
+            }
+        });
+
+         closeAll.addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(ClickEvent event) {
+                eventBus.fireEvent(new ActionEvent("CLOSEALL_VIEWGERE"));
+            }
+        });
     }
 
     public AddSponsorPopup getPopupadd() {

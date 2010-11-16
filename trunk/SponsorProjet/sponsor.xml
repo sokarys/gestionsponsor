@@ -8,11 +8,19 @@
 <name>ERSF</name>
 <adresse>ERSF Grenoble</adresse>
 <urllogo>images/esrf.jpeg</urllogo>
-<argent>90.0</argent>
+<argent>90.1</argent>
 </sponsor>
 <sponsor class="fr.iut2.client.model.SponsorLot">
 <name>EDF</name>
 <adresse>EDF Paris</adresse>
 <urllogo>images/t1_logo_edf.png</urllogo>
 <lot>100 Stylos</lot>
+</sponsor>
+<sponsor class="fr.iut2.client.model.SponsorLot">
+<name>Test1</name>
+<adresse>adresse test1</adresse>
+<urllogo>images/ILL_logo.jpg</urllogo>
+<lot>Lot1</lot>
+<lot>loty2</lot>
+<lot>lot3</lot>
 </sponsor>
