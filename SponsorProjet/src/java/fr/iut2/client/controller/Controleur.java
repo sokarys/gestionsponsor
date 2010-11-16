@@ -133,6 +133,18 @@ public class Controleur{
                                  */
                                 else if(event.getAction().contains("VIEWALL_VIEWARGENTS")){
                                         Racine.get().getviewAllS().switchDeckPanel(2);
+                                }else if(event.getAction().contains("OPENALL_VIEWARGENTS")){
+                                         Racine.get().getviewAllS().openAll();
+
+                                }else if(event.getAction().contains("CLOSEALL_VIEWARGENTS")){
+                                         Racine.get().getviewAllS().closeAll();
+
+                                }else if(event.getAction().contains("OPENALL_VIEWGERE")){
+                                         Racine.get().getViewGereSponsor().openAll();
+
+                                }else if(event.getAction().contains("CLOSEALL_VIEWGERE")){
+                                         Racine.get().getViewGereSponsor().closeAll();
+
                                 }
                                 /**
                                  * Permet de changer la vue et d'afficher tous les sponsors

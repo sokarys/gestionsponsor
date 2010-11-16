@@ -94,9 +94,9 @@ public class Racine extends Composite implements ValueChangeHandler<String>{
                 dockPanel.setHeight(MAX_HEIGHT);
                 dockPanel.setWidth(MAX_WIDTH);
                 dockPanel.setHorizontalAlignment(DockPanel.ALIGN_CENTER);
-
+                dockPanel.setSpacing(10);
                 tabPanel = new TabPanel();
-                tabPanel.setSize(MAX_WIDTH,MAX_HEIGHT);
+                tabPanel.setSize("100%", "600px");
                 tabPanel.add(new ViewAccueil(), NAMEFIELD_CONSTANT.accueil());
                 tabPanel.add(viewAllS, NAMEFIELD_CONSTANT.allSponsor());
                 tabPanel.add(viewDotation, NAMEFIELD_CONSTANT.listDonSponsor());

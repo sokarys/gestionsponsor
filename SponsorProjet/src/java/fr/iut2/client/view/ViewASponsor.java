@@ -105,10 +105,10 @@ public class ViewASponsor extends Composite{
              argent = new TextArea();
              argent.setVisibleLines(1);
              argent.setText(String.valueOf(new Float(slot.getArgent())));
-             flex.add(new Label("Argents : "));
+             flex.add(new Label(Racine.NAMEFIELD_CONSTANT.argent()));
              flex.add(argent);
          }else if(sponsor instanceof SponsorLot){
-             flex.add(new Label("Lots : "));
+             flex.add(new Label(Racine.NAMEFIELD_CONSTANT.lot()));
               
               lot = new ArrayList<TextArea>();
             flex.add(p2);
@@ -124,15 +124,16 @@ public class ViewASponsor extends Composite{
 
         }
 
-        modifyGo = new Button("Modify");
+        modifyGo = new Button(Racine.NAMEFIELD_CONSTANT.modify());
         
         
-        save  = new Button("Save");
-        delete= new Button("Delete");
+        save  = new Button(Racine.NAMEFIELD_CONSTANT.update());
+        delete= new Button(Racine.NAMEFIELD_CONSTANT.dell());
         
         this.changeModifyStatus(modifyMode);
-
+        addLot.setVisible(false);
         flex.add(addLot);
+
         flex.add(save);
         flex.add(delete);
         flex.add(modifyGo);
@@ -191,8 +192,8 @@ public class ViewASponsor extends Composite{
         if(logoImg!=null){
             logoImg.setVisible(false);
         }
-        addLot.setVisible(true);
-        modifyGo.setText("Read");
+        
+        modifyGo.setText(Racine.NAMEFIELD_CONSTANT.read());
         save.setVisible(true);
         delete.setVisible(true);
         formUploadImg.setVisible(true);
@@ -201,6 +202,7 @@ public class ViewASponsor extends Composite{
         adresse.setReadOnly(false);
 
         if(sponsor instanceof SponsorLot){
+            addLot.setVisible(true);
             for(TextArea t : lot){
                 t.setReadOnly(false);
             }
@@ -220,9 +222,9 @@ public class ViewASponsor extends Composite{
         if(logoImg!=null){
             logoImg.setVisible(true);
         }
-        modifyGo.setText("Modify");
+        modifyGo.setText(Racine.NAMEFIELD_CONSTANT.modify());
         save.setVisible(false);
-        addLot.setVisible(false);
+        
         delete.setVisible(false);
         formUploadImg.setVisible(false);
         name.setReadOnly(true);
@@ -230,6 +232,7 @@ public class ViewASponsor extends Composite{
         adresse.setReadOnly(true);
         
         if(sponsor instanceof SponsorLot){
+            addLot.setVisible(false);
             removeEmptySponsorLot();
             for(TextArea t : lot){
                 t.setReadOnly(true);
@@ -307,6 +310,10 @@ public class ViewASponsor extends Composite{
                 }
         updateListLot();
     }
+     
+     public void open(boolean b){
+         content.setOpen(b);
+     }
      
     public void modifySponsor(){
         if(sponsor instanceof SponsorLot){

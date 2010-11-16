@@ -34,6 +34,8 @@ public class ViewAllSponsor extends Composite{
     protected ArrayList<ViewASponsor> viewasponsorArgent;
     protected Button viewAll, viewLot, viewArgent;
     protected VerticalPanel panel;
+    protected Button openAll;
+    protected Button closeAll;
     
 /**
  * Constructeur
@@ -47,10 +49,14 @@ public class ViewAllSponsor extends Composite{
         viewAll = new Button(Racine.NAMEFIELD_CONSTANT.viewAll());
         viewLot = new Button(Racine.NAMEFIELD_CONSTANT.viewLot());
         viewArgent = new Button(Racine.NAMEFIELD_CONSTANT.viewArgent());
+        openAll = new Button(Racine.NAMEFIELD_CONSTANT.openAll());
+        closeAll = new Button(Racine.NAMEFIELD_CONSTANT.closeAll());
 
         hPanel.add(viewAll);
         hPanel.add(viewLot);
         hPanel.add(viewArgent);
+        hPanel.add(openAll);
+        hPanel.add(closeAll);
 
 
 
@@ -81,6 +87,32 @@ public class ViewAllSponsor extends Composite{
        
     }
 
+    public void openAll(){
+        
+        for(ViewASponsor v : viewasponsor ){
+            v.open(true);
+        }
+        for(ViewASponsor v : viewasponsorLot ){
+            v.open(true);
+        }
+        for(ViewASponsor v : viewasponsorArgent ){
+            v.open(true);
+        }
+    }
+
+    public void closeAll(){
+
+        for(ViewASponsor v : viewasponsor ){
+            v.open(false);
+        }
+        for(ViewASponsor v : viewasponsorLot ){
+            v.open(false);
+        }
+        for(ViewASponsor v : viewasponsorArgent ){
+            v.open(false);
+        }
+    }
+
     /**
      * Init event
      */
@@ -106,6 +138,22 @@ public class ViewAllSponsor extends Composite{
             @Override
             public void onClick(ClickEvent event) {
                 eventBus.fireEvent(new ActionEvent("VIEWALL_VIEWARGENTS"));
+            }
+        });
+
+        openAll.addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(ClickEvent event) {
+                eventBus.fireEvent(new ActionEvent("OPENALL_VIEWARGENTS"));
+            }
+        });
+
+         closeAll.addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(ClickEvent event) {
+                eventBus.fireEvent(new ActionEvent("CLOSEALL_VIEWARGENTS"));
             }
         });
     }
